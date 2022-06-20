@@ -10,11 +10,6 @@ const mutations = {
   },
   reset(state) {
     state.currentPage = state.currentPage = 1;
-    state.listStep.map((item) => {
-      item.form.map((list) => {
-        return (list.model = "");
-      });
-    });
   },
 };
 

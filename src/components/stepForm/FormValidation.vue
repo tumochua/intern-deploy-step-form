@@ -171,10 +171,6 @@ export default {
     },
   },
   methods: {
-    onSubmit(values) {
-      console.log(JSON.stringify(values, null, 2));
-    },
-
     handleStepBack(value) {
       if (value.name.trim() === "" && value.email.trim() === "") {
         this.step.errorForm = true;

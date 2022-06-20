@@ -30,9 +30,6 @@ export default {
     getHeaderData() {
       return this.$store.state.listStep;
     },
-    // getHeaderData() {
-    //   return this.$store.state.listStep;
-    // },
   },
   methods: {},
 };
@@ -72,9 +69,6 @@ export default {
       color: #8f9294;
       align-self: center;
       font-weight: 500;
-    }
-    .test {
-      background: red;
     }
   }
 }

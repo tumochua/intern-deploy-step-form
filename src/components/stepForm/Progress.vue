@@ -1,12 +1,18 @@
 <template>
-  <div
-    :class="{ progres: progress }"
-    :style="{ width: (progress / 3) * 100 + '%' }"
-  ></div>
+  <div>
+    <div
+      :class="{ progres: progress }"
+      :style="{
+        width:
+          (progress.currentPage / Object.keys(progress).length) * 100 + '%',
+      }"
+    ></div>
+    <!-- <div>{{ progress }}</div> -->
+  </div>
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapGetters, mapState } from "vuex";
 export default {
   name: "ProgressVue",
   data() {
@@ -14,8 +20,9 @@ export default {
   },
   computed: {
     ...mapState({
-      progress: (state) => state.currentPage,
+      progress: (state) => state,
     }),
+    ...mapGetters([""]),
   },
 };
 </script>
