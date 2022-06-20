@@ -119,10 +119,8 @@
               The field is required!
             </p>
             <div>
-              <button @click="hanldeReset" class="btn-previous">RESET</button>
-              <button type="submit" @click="handleSubmit" class="btn-next">
-                SEND
-              </button>
+              <button @click="hanldeReset">RESET</button>
+              <button type="submit" @click="handleSubmit">SEND</button>
             </div>
           </div>
         </div>
@@ -134,7 +132,6 @@
 <script>
 import { mapState } from "vuex";
 import { Field, Form, ErrorMessage } from "vee-validate";
-
 export default {
   name: "FormValidation",
   components: {
@@ -146,17 +143,12 @@ export default {
     return {
       step: {
         errorForm: false,
-
         name: "",
         email: "",
-
         companyname: "",
         numberofemployee: "",
-
         selectOption: "",
-
         selectRequid: false,
-
         termsState: false,
         validated: false,
       },
@@ -171,6 +163,9 @@ export default {
     },
   },
   methods: {
+    onSubmit(values) {
+      console.log(JSON.stringify(values, null, 2));
+    },
     handleStepBack(value) {
       if (value.name.trim() === "" && value.email.trim() === "") {
         this.step.errorForm = true;
@@ -184,17 +179,14 @@ export default {
     handleStepBack2(value) {
       const validation =
         isNaN(value.numberofemployee) || value.numberofemployee > 1;
-
       if (value.companyname.trim() && validation) {
         this.$store.dispatch("backStep");
-
         return false;
       }
     },
     handleStepEnd() {
       this.$store.dispatch("endStep");
     },
-
     isRequiredName(value) {
       if (value) {
         this.step.errorForm = false;
@@ -202,7 +194,6 @@ export default {
       if (value && value.trim()) {
         return true;
       }
-
       return "This is required name";
     },
     isRequiredCompanyname(value) {
@@ -225,14 +216,11 @@ export default {
       if (+value && value.trim()) {
         return true;
       }
-
       return "This is required";
     },
-
     handleTermsState() {
       this.step.validated = false;
     },
-
     handleSubmit() {
       this.step.validated = true;
       if (!this.step.selectOption) {
@@ -257,7 +245,6 @@ export default {
   box-shadow: 0 4px 10px rgb(0 0 0 / 20%), 6px 12px 20px rgb(0 0 0 / 10%);
   margin-top: 15px;
   padding: 20px;
-
   .btn-next {
     margin: 0 auto;
     display: inline-block;
@@ -294,7 +281,6 @@ export default {
     box-shadow: 1px 1px 10px rgb(0 0 0 / 40%);
     transition: box-shadow 0.35s ease-out;
   }
-
   .form-control {
     color: #586068;
     font-size: 16px;
