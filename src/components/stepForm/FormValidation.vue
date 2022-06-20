@@ -119,8 +119,8 @@
               The field is required!
             </p>
             <div>
-              <button @click="hanldeReset">RESET</button>
-              <button type="submit" @click="handleSubmit">SEND</button>
+              <button @click="hanldeReset" class="btn-previous">RESET</button>
+              <button @click="handleSubmit" class="btn-next">SEND</button>
             </div>
           </div>
         </div>
